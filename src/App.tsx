@@ -20,10 +20,6 @@ function App() {
         dispatch(actions.changeRoleAC(roleId, role))
     }
 
-    /*useEffect(() => {
-        const id: string = '5'
-        dispatch(actions.setDefaultRoleAC(id))
-    }, [])*/
     return (
         <div className="App">
             {roles.map(r => <Dropdown key={r.id} role={r} name={r.name} roleId={r.id} checkboxes={r.checkbox}
