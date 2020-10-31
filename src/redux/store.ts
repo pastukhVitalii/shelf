@@ -2,7 +2,7 @@ import {combineReducers, createStore} from "redux";
 import roleReducer from "./roleReducer";
 
 let rootReducer = combineReducers({
-    role: roleReducer
+    userRole: roleReducer
 })
 
 export type AppStateType = ReturnType<typeof rootReducer>

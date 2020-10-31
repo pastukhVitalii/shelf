@@ -1,19 +1,33 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {AppStateType} from "./redux/store";
-import {RolesType} from "./types/entities";
+import {CheckboxType, RolesType} from "./types/entities";
+import {Checkboxes} from "./Components/Checkboxes/Checkboxes";
 
-/*type PropsType = {
+type PropsType = {
     name: string
-}*/
+    changeRole: (roleId: string, role: RolesType) => void
+    changeStatus: (checked: boolean, roleId: string, checkboxId: string) => void
+    role: RolesType
+    roleId: string
+    checkboxes: Array<CheckboxType>
+    disableCheckbox: boolean
+    isActive: boolean
+}
 
-const Dropdown = () => {
-    const roles = useSelector<AppStateType, Array<RolesType>>(state => state.role.roles);
+const Dropdown = (props: PropsType) => {
+
+    const onChangeRole = () => {
+        props.changeRole(props.roleId, props.role)
+    }
     return (
         <div>
-            <select>
-                {roles.map(r => <option key={r.id}>{r.name}</option>)}
-            </select>
+            <div>
+                <div style={{backgroundColor: 'yellow'}} onClick={onChangeRole}>{props.name}</div>
+            </div>
+            <div>
+                <Checkboxes checkboxes={props.checkboxes} changeStatus={props.changeStatus}
+                            disable={props.disableCheckbox}
+                            roleId={props.roleId} isActive={props.isActive}/>
+            </div>
         </div>
     );
 };

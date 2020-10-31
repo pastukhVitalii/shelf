@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {useDispatch} from "react-redux";
-import {actions} from "../redux/roleReducer";
 
 type PropsType = {
     name: string
@@ -8,6 +6,8 @@ type PropsType = {
     disable: boolean
     roleId: string
     checkboxId: string
+
+    changeStatus: (checked: boolean, roleId: string, checkboxId: string) => void
 };
 
 /*
@@ -19,17 +19,16 @@ type CommonType = PropsType & StateType
 */
 
 export const Checkbox = (props: PropsType) => {
+    console.log('render')
 
-    const dispatch = useDispatch()
-
-    const changeStatus = () => {
-    dispatch(actions.checkCheckboxSuccessAC(props.checked, props.roleId, props.checkboxId))
+    const onChangeStatus = () => {
+        props.changeStatus(props.checked, props.roleId, props.checkboxId)
     }
 
     return (
         <div>
             <label>
-                <input type={'checkbox'} checked={props.checked} disabled={props.disable} onChange={changeStatus}/>
+                <input type={'checkbox'} checked={props.checked} disabled={props.disable} onChange={onChangeStatus}/>
                 {props.name}
             </label>
         </div>

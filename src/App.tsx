@@ -1,26 +1,33 @@
 import React from 'react';
 import './App.css';
 import Dropdown from "./Dropdown";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./redux/store";
 import {RolesType} from "./types/entities";
-import {Checkbox} from "./Components/Checkbox";
+import {actions} from "./redux/roleReducer";
+
 
 function App() {
 
-    const roles = useSelector<AppStateType, Array<RolesType>>(state => state.role.roles);
+    const roles = useSelector<AppStateType, Array<RolesType>>(state => state.userRole.roles);
 
+    const dispatch = useDispatch()
+
+    const changeStatus = (checked: boolean, roleId: string, checkboxId: string) => {
+        dispatch(actions.checkCheckboxSuccessAC(checked, roleId, checkboxId))
+    }
+    const changeRole = (roleId: string, role: RolesType) => {
+        dispatch(actions.changeRoleAC(roleId, role))
+    }
+
+    /*useEffect(() => {
+        const id: string = '5'
+        dispatch(actions.setDefaultRoleAC(id))
+    }, [])*/
     return (
         <div className="App">
-            <Dropdown/>
-            {roles.map(r => {
-                return (
-                    <>
-                        {r.checkbox.map(checkbox => <Checkbox name={checkbox.name} checked={checkbox.checked}
-                                                              disable={r.disable} roleId={r.id} checkboxId={checkbox.id}/>)}
-                    </>
-                )
-            })}
+            {roles.map(r => <Dropdown key={r.id} role={r} name={r.name} roleId={r.id} checkboxes={r.checkbox}
+                                      changeRole={changeRole} changeStatus={changeStatus} isActive={r.isActiveRole} disableCheckbox={r.disableCheckbox}/>)}
         </div>
     );
 }
