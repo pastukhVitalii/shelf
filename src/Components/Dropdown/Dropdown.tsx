@@ -22,7 +22,7 @@ export const Dropdown = (props: PropsType) => {
     console.log(props.roles);
     return (
         <div className={css.items}>
-            {props.roles.map(r => <div key={r.id}
+            {props.roles?.map(r => <div key={r.id}
                                        className={css.item + ' ' + (props.roleId === r.id ? css.selected : '')}
                                        onClick={() => onChangeRole(r.id)}>{r.name}</div>)}
         </div>

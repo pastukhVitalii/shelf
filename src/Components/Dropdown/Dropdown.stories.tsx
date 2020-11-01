@@ -8,7 +8,7 @@ export default {
     component: Dropdown,
 };
 
-export let roles = [
+let roles = [
     {
         id: '1',
         name: "Admin",

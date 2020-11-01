@@ -9,18 +9,20 @@ export default {
     component: ControlPanel,
 };
 
-export const ControlPanelSimple = (props: PropsType) => {
-const [role, setRole] = useState('2')
+export const SimpleControlPanel = (props: PropsType) => {
+
+    const [isChecked, changeStatus] = useState(false);
+
     return <>
         <ControlPanel name={'User'} roleId={'idRole2352165'} isActive={true}
                       checkboxes={[{
                           id: 'idCheckbox3645632',
-                          checked: true,
+                          checked: isChecked,
                           name: 'move'
                       }]}
-                      changeStatus={action('status')}
-                      changeRole={setRole}
-                      disableCheckbox={false} roles={props.roles} activeRole={roles[0]} />
+                      changeStatus={() => changeStatus(!isChecked)}
+                      changeRole={action('change role')}
+                      disableCheckbox={false} roles={roles} activeRole={roles[0]} />
     </>
 }
 
