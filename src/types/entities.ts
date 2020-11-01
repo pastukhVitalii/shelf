@@ -2,7 +2,8 @@ export type RolesType = {
     id: string
     name: string
     isActiveRole: boolean
-    checkbox: Array<CheckboxType>
+    checkbox?: Array<CheckboxType>
+    checkboxGems?: Array<CheckboxType>
     disableCheckbox: boolean
 }
 

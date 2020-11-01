@@ -65,20 +65,6 @@ export let roles = [
             {id: '066', name: 'Share', checked: true},
         ]
     },
-    {
-        id: '5',
-        name: "Default",
-        isActiveRole: false,
-        disableCheckbox: true,
-        checkbox: [
-            {id: '11', name: 'Create', checked: false},
-            {id: '22', name: 'Update', checked: false},
-            {id: '33', name: 'Move', checked: false},
-            {id: '44', name: 'Delete', checked: false},
-            {id: '55', name: 'View', checked: false},
-            {id: '66', name: 'Share', checked: false},
-        ]
-    }
 ]
 
 export const DropdownTest = (props: PropsType) => <Dropdown

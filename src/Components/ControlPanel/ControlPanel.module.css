@@ -1,6 +1,5 @@
 .container {
     width: 70%;
-    height: 250px;
     margin-top: 40px;
     background-color: #ffffff;
     padding: 20px;
@@ -28,4 +27,5 @@
     position: absolute;
     z-index: 2;
     background-color: #a09e9e;
+
 }

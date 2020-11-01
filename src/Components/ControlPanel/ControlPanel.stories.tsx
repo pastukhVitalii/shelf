@@ -20,7 +20,7 @@ const [role, setRole] = useState('2')
                       }]}
                       changeStatus={action('status')}
                       changeRole={setRole}
-                      disableCheckbox={false} roles={roles} activeRole={roles[0]}/>
+                      disableCheckbox={false} roles={props.roles} activeRole={roles[0]} />
     </>
 }
 

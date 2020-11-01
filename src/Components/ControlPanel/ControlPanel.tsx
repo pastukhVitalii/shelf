@@ -11,25 +11,28 @@ export type PropsType = {
     changeRole: (roleId: string) => void
     changeStatus: (checked: boolean, roleId: string, checkboxId: string) => void
     roleId: string
-    checkboxes: Array<CheckboxType>
+    checkboxes?: Array<CheckboxType>
+    checkboxesGems?: Array<CheckboxType>
     disableCheckbox: boolean
     isActive: boolean
     roles: Array<RolesType>
     activeRole: RolesType
 }
 
-export const ControlPanel = (props: PropsType) => {
+export const ControlPanel = React.memo((props: PropsType) => {
 
     let [showItems, toggleItems] = useState(false);
 
     const sendSata = () => {
         const newObj = {
             name: props.activeRole.name,
-            checkboxes: props.activeRole.checkbox
+            checkboxes: props.activeRole.checkbox,
+            checkboxesGems: props.checkboxesGems
         }
         const json = JSON.stringify(newObj);
         alert("SAVE DATA " + json)
     }
+
     return (
         <div className={css.container}>
             <div className={css.select}>
@@ -49,14 +52,16 @@ export const ControlPanel = (props: PropsType) => {
             </div>
             <div>
                 <h4>Gems</h4>
-                <Checkboxes isActive={props.isActive} roleId={props.roleId} disable={props.disableCheckbox}
-                            checkboxes={props.checkboxes} changeStatus={props.changeStatus}/>
+                {props.roleId === '4' ?
+                    <Checkboxes isActive={props.isActive} roleId={props.roleId} disable={props.disableCheckbox}
+                                checkboxes={props.checkboxesGems} changeStatus={props.changeStatus}/> :
+                    <Checkboxes isActive={props.isActive} roleId={props.roleId} disable={props.disableCheckbox}
+                                checkboxes={props.checkboxes} changeStatus={props.changeStatus}/>}
             </div>
-
             <Button btnName={'SAVE'} small={true} type={"primary"} onClick={sendSata}/>
         </div>
     );
-};
+});
 
 
 

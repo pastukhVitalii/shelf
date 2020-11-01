@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import css from './App.module.css';
 import {ControlPanel} from "./Components/ControlPanel/ControlPanel";
 import {useDispatch, useSelector} from "react-redux";
@@ -14,9 +14,9 @@ function App() {
 
     const dispatch = useDispatch();
 
-    const changeStatus = (checked: boolean, roleId: string, checkboxId: string) => {
+    const changeStatus = useCallback((checked: boolean, roleId: string, checkboxId: string) => {
         dispatch(actions.checkCheckboxSuccessAC(checked, roleId, checkboxId))
-    }
+    },[dispatch])
 
     const changeRole = (roleId: string) => {
         dispatch(actions.changeRoleAC(roleId))
@@ -26,6 +26,7 @@ function App() {
         <div className={css.app}>
             <ControlPanel name={activeRole.name} changeRole={changeRole} changeStatus={changeStatus}
                           roleId={activeRole.id} checkboxes={activeRole.checkbox}
+                          checkboxesGems={activeRole.checkboxGems}
                           disableCheckbox={activeRole.disableCheckbox} isActive={activeRole.isActiveRole}
                           roles={roles} activeRole={activeRole}/>
         </div>

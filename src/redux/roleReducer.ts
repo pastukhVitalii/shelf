@@ -8,7 +8,7 @@ export type initialStateType = {
     roles: Array<RolesType>
 }
 
-const initialState: initialStateType = {
+export const initialState: initialStateType = {
     roles: [
         {
             id: '1',
@@ -64,6 +64,14 @@ const initialState: initialStateType = {
                 {id: '044', name: 'Delete', checked: true},
                 {id: '055', name: 'View', checked: true},
                 {id: '066', name: 'Share', checked: true},
+            ],
+            checkboxGems: [
+                {id: 'g011', name: 'Create', checked: true},
+                {id: 'g022', name: 'Update', checked: true},
+                {id: 'g033', name: 'Move', checked: true},
+                {id: 'g044', name: 'Delete', checked: true},
+                {id: 'g055', name: 'View', checked: true},
+                {id: 'g066', name: 'Share', checked: true},
             ]
         },
     ]
@@ -78,13 +86,21 @@ const roleReducer = (state: initialStateType = initialState, action: ActionType)
                     if (r.id === action.roleId) {
                         return {
                             ...r,
-                            checkbox: r.checkbox.map(c => {
+                            checkbox: r.checkbox?.map(c => {
+                                if (c.id !== action.checkboxId) {
+                                    return c
+                                } else {
+                                    return {...c, checked: action.status}
+                                }
+                            }),
+                            checkboxGems: r.checkboxGems?.map(c => {
                                 if (c.id !== action.checkboxId) {
                                     return c
                                 } else {
                                     return {...c, checked: action.status}
                                 }
                             })
+
                         }
                     } else {
                         return r
