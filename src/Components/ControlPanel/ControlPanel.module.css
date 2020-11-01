@@ -1,0 +1,31 @@
+.container {
+    width: 70%;
+    height: 250px;
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.select {
+    width: 120px;
+}
+
+.activeUser {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    padding-left: 5px;
+    border: 1px solid black;
+    margin: 20px 0 5px;
+}
+
+.activeUser img {
+    margin-bottom: 1px;
+}
+
+.blockItems {
+    width: 120px;
+    position: absolute;
+    z-index: 2;
+    background-color: #a09e9e;
+}

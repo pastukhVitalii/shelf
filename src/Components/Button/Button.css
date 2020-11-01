@@ -1,0 +1,59 @@
+.button {
+    width: 200px;
+    height: 50px;
+    outline: none;
+    border: none;
+    /*text-transform: uppercase;*/
+    margin: 20px 10px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+button {
+    box-sizing: border-box;
+}
+
+.default {
+    background-color: white;
+}
+
+.primary {
+    background-color: #df7a51;
+}
+
+.danger {
+    background-color: red;
+}
+
+.filter-active {
+    background-color: blue;
+}
+
+.button img {
+    height: 48px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.delete {
+    border: none;
+    width: auto;
+    height: 10px;
+    color: red;
+    background: none;
+    opacity: 0;
+    z-index: -1;
+    line-height: 0;
+}
+
+.todoList-task:hover .delete {
+    opacity: 1;
+    z-index: 1;
+}
+
+.small {
+    width: 100px;
+    height: 25px;
+}

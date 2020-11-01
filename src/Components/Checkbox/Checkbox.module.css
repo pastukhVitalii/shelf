@@ -1,0 +1,12 @@
+.checkboxImg {
+    width: 15px;
+    margin: 0 10px;
+}
+.item {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+.disabled {
+    opacity: 0.7;
+}

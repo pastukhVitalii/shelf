@@ -54,7 +54,7 @@ const initialState: initialStateType = {
         },
         {
             id: '4',
-            name: "Custom",
+            name: "Developer",
             isActiveRole: true,
             disableCheckbox: false,
             checkbox: [
@@ -66,20 +66,6 @@ const initialState: initialStateType = {
                 {id: '066', name: 'Share', checked: true},
             ]
         },
-        {
-            id: '5',
-            name: "Default",
-            isActiveRole: false,
-            disableCheckbox: true,
-            checkbox: [
-                {id: '11', name: 'Create', checked: false},
-                {id: '22', name: 'Update', checked: false},
-                {id: '33', name: 'Move', checked: false},
-                {id: '44', name: 'Delete', checked: false},
-                {id: '55', name: 'View', checked: false},
-                {id: '66', name: 'Share', checked: false},
-            ]
-        }
     ]
 }
 
@@ -116,12 +102,6 @@ const roleReducer = (state: initialStateType = initialState, action: ActionType)
                     }
                 })],
             }
-        case SET_DEFAULT_ROLE:
-            return {
-                ...state,
-                /* ...state,
-                roles: state.roles[+action.defaultRoleId]*/
-            }
         default:
             return state
     }
@@ -141,15 +121,10 @@ export const actions = {
         roleId,
         checkboxId
     } as const),
-    changeRoleAC: (roleId: string, role: RolesType) => ({
+    changeRoleAC: (roleId: string) => ({
         type: CHANGE_ROLE,
         roleId,
-        role
     } as const),
-    setDefaultRoleAC: (defaultRoleId: string) => ({
-        type: SET_DEFAULT_ROLE,
-        defaultRoleId
-    } as const)
 }
 
 
