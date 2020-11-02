@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
-import {ControlPanel, PropsType} from "./ControlPanel";
+import {ControlPanel} from "./ControlPanel";
 
 export default {
     title: 'Example/ControlPanel',
@@ -66,7 +66,24 @@ let roles = [
     },
 ]
 
-export const SimpleControlPanel = (props: PropsType) => {
+export const SimpleControlPanel = () => {
+
+    const [isChecked, changeStatus] = useState(false);
+
+    return <>
+        <ControlPanel name={'Developer'} roleId={'idRole2352165'} isActive={true}
+                      checkboxes={[{
+                          id: 'idCheckbox3645632',
+                          checked: isChecked,
+                          name: 'move'
+                      }]}
+                      changeStatus={() => changeStatus(!isChecked)}
+                      changeRole={action('change role')}
+                      disableCheckbox={false} roles={roles} activeRole={roles[0]}/>
+    </>
+}
+
+export const DisabledCheckboxes = () => {
 
     const [isChecked, changeStatus] = useState(false);
 
@@ -79,7 +96,7 @@ export const SimpleControlPanel = (props: PropsType) => {
                       }]}
                       changeStatus={() => changeStatus(!isChecked)}
                       changeRole={action('change role')}
-                      disableCheckbox={false} roles={roles} activeRole={roles[0]} />
+                      disableCheckbox={true} roles={roles} activeRole={roles[0]}/>
     </>
 }
 

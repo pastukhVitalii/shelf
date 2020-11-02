@@ -53,12 +53,12 @@ export const ControlPanel = React.memo((props: PropsType) => {
             <div>
                 <h4>Gems</h4>
                 {props.roleId === '4' ?
-                    <Checkboxes isActive={props.isActive} roleId={props.roleId} disable={props.disableCheckbox}
+                    <Checkboxes isActive={props.isActive} roleId={'4'} disable={props.disableCheckbox}
                                 checkboxes={props.checkboxesGems} changeStatus={props.changeStatus}/> :
                     <Checkboxes isActive={props.isActive} roleId={props.roleId} disable={props.disableCheckbox}
                                 checkboxes={props.checkboxes} changeStatus={props.changeStatus}/>}
             </div>
-            <Button btnName={'SAVE'} small={true} type={"primary"} onClick={sendSata}/>
+            <Button btnName={'save'} small={true} type={"primary"} onClick={sendSata}/>
         </div>
     );
 });

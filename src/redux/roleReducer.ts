@@ -2,7 +2,6 @@ import {RolesType} from "../types/entities";
 
 export const CHANGE_STATUS = 'SHELF/CHECK_CHECKBOX';
 export const CHANGE_ROLE = 'SHELF/CHANGE_ROLE';
-export const SET_DEFAULT_ROLE = 'SET/DEFAULT_ROLE';
 
 export type initialStateType = {
     roles: Array<RolesType>
@@ -111,8 +110,8 @@ const roleReducer = (state: initialStateType = initialState, action: ActionType)
             return {
                 ...state,
                 roles: [...state.roles.map(r => {
-                    if (r.id !== action.roleId){
-                        return { ...r, isActiveRole: false}
+                    if (r.id !== action.roleId) {
+                        return {...r, isActiveRole: false}
                     } else {
                         return {...r, isActiveRole: true}
                     }
