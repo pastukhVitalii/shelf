@@ -19,7 +19,6 @@ export const Dropdown = (props: PropsType) => {
         props.toggleItems(false);
     }
 
-    console.log(props.roles);
     return (
         <div className={css.items}>
             {props.roles?.map(r => <div key={r.id}

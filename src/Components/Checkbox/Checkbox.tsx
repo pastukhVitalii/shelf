@@ -15,9 +15,6 @@ type PropsType = {
 export const Checkbox = React.memo(
     (props: PropsType) => {
 
-        console.log('render');
-        // const onChangeStatus = useCallback(() => props.changeStatus(props.checked, props.roleId, props.checkboxId), [props.checked, props.roleId, props.checkboxId]);
-
         const onChangeStatus = () => {
             if (!props.disable) {
                 props.changeStatus(props.checked, props.roleId, props.checkboxId);
