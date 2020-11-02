@@ -128,7 +128,7 @@ exports[`Storyshots Example/ControlPanel Disabled Checkboxes 1`] = `
     onClick={[Function]}
   >
      
-    SAVE
+    save
   </button>
 </div>
 `;
@@ -219,7 +219,7 @@ exports[`Storyshots Example/ControlPanel Simple Control Panel 1`] = `
     onClick={[Function]}
   >
      
-    SAVE
+    save
   </button>
 </div>
 `;
