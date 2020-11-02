@@ -131,7 +131,7 @@ type ActionType = InferActionTypes<typeof actions>
 export type InferActionTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
 
 export const actions = {
-    checkCheckboxSuccessAC: (status: boolean, roleId: string, checkboxId: string) => ({
+    checkCheckboxAC: (status: boolean, roleId: string, checkboxId: string) => ({
         type: CHANGE_STATUS,
         status: !status,
         roleId,

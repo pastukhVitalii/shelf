@@ -15,7 +15,7 @@ function App() {
     const dispatch = useDispatch();
 
     const changeStatus = useCallback((checked: boolean, roleId: string, checkboxId: string) => {
-        dispatch(actions.checkCheckboxSuccessAC(checked, roleId, checkboxId))
+        dispatch(actions.checkCheckboxAC(checked, roleId, checkboxId))
     }, [dispatch]);
 
     const changeRole = (roleId: string) => {
